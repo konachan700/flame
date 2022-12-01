@@ -19,12 +19,18 @@ export const AppGrid = (props: Props): JSX.Element => {
       apps = <Message>No apps match your search criteria</Message>;
     } else {
       let cats = new Set<string>();
+      let catsArray: Array<string> = [];
       let appsList: Array<JSX.Element> = [];
+
       props.apps.forEach((app: App) => {
         cats.add(app.description);
       });
-
       cats.forEach((item: string) => {
+        catsArray.push(item);
+      });
+      catsArray
+       .sort((a: string, b: string) : number => { return b.localeCompare(a); })
+       .forEach((item: string) => {
         appsList.push(
           <div className={classes.AppGrid}>
             {props.apps.filter((app: App) => { return app.description.indexOf(item) >= 0; }).map((app: App): JSX.Element => {
