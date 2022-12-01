@@ -27,4 +27,6 @@ EXPOSE 5005
 ENV NODE_ENV=production
 ENV PASSWORD=flame_password
 
+RUN npm install -g sqlite3 && npm i -g sequelize && npm rebuild
+
 CMD ["sh", "-c", "chown -R node /app/data && node server.js"]

@@ -1,6 +1,9 @@
 .AppGrid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  border-bottom-width: 1px;
+  border-color: var(--color-accent);
+  margin-bottom: 8px;
 }
 
 @media (min-width: 430px) {
